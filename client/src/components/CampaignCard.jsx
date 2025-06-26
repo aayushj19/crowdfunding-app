@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { getEthereumContract } from "../utils";
 import { ethers } from "ethers";
-import { parseEther } from "ethers";
 
 
 const CampaignCard = ({ title, description, target, collected, image, deadline, id }) => {

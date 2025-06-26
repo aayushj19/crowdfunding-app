@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+# node & env files
+node_modules/
+.env
+
+# Hardhat
+artifacts/
+cache/
+coverage/
+typechain/
+typechain-types/
+
