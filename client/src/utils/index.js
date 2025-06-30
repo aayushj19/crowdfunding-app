@@ -1,6 +1,7 @@
 import { Contract, BrowserProvider } from "ethers";
 import { CONTRACT_ABI, CONTRACT_ADDRESS } from "../constants";
 
+
 export const getEthereumContract = async () => {
   if (!window.ethereum) throw new Error("Please Install Metamask");
 
