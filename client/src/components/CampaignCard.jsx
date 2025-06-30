@@ -28,7 +28,7 @@ const CampaignCard = ({ title, description, target, collected, image, deadline, 
 
     await tx.wait();
     alert("Donation successful!");
-    setAmount(""); // reset input
+    setAmount(""); 
   } catch (err) {
     console.error("Donation failed:", err);
     alert("Transaction failed. See console for details.");
@@ -38,12 +38,12 @@ const CampaignCard = ({ title, description, target, collected, image, deadline, 
 
 
   return (
-    <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 max-w-sm">
+    <div className="bg-white  text-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 max-w-sm">
       <div className="overflow-hidden rounded-t-2xl">
         <img src={image} alt={title} className="w-full h-40 object-cover" />
-      </div>
+      </div>  
       <div className="p-4 space-y-3">
-        <h2 className="text-lg font-semibold text-gray-800 truncate">{title}</h2>
+        <h2 className="text-lg font-semibold text-white truncate">{title}</h2>
         <p className="text-gray-600 text-sm line-clamp-3">{description}</p>
 
         <div className="flex justify-between text-sm text-gray-700 mt-2">
@@ -57,7 +57,7 @@ const CampaignCard = ({ title, description, target, collected, image, deadline, 
           </div>
         </div>
 
-        <p className="text-xs text-gray-500 pt-1">
+        <p className="text-xs text-white pt-1">
           Deadline: {new Date(Number(deadline) * 1000).toLocaleDateString()}
         </p>
 

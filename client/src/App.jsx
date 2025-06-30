@@ -6,11 +6,10 @@ import useWallet from "./hooks/Wallet";
 
 function App() {
   const { walletAddress, connectWallet, disconnectWallet } = useWallet();
-
   return (
     <Router>
-      <nav className="p-4 bg-gray-800 text-white flex justify-between items-center">
-        <div className="flex gap-4">
+      <nav className="p-4  flex justify-between items-center">
+        <div className="flex  bg-white text-white gap-4">
           <Link to="/" className="hover:underline">Home</Link>
           <Link to="/create" className="hover:underline">Create Campaign</Link>
         </div>
@@ -43,6 +42,7 @@ function App() {
         <Route path="/create" element={<CreateCampaign />} />
       </Routes>
     </Router>
+
   );
 }
 

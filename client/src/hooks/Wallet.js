@@ -30,7 +30,7 @@ export default function useWallet(){
         setWalletAddress(accounts.length ? accounts[0] : null);
       });
     }
-    }, []);
+    }, );
 
     return {walletAddress,connectWallet,disconnectWallet};
 }

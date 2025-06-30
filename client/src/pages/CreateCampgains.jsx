@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import { getEthereumContract } from "../utils";
 import { useNavigate } from "react-router-dom";
 
-const navigator = useNavigate;
 
 function CreateCampaign() {
+  const navigator = useNavigate();
+
   const [form, setForm] =    useState({
     title: "",
     description: "",
@@ -13,7 +14,12 @@ function CreateCampaign() {
     image: "",
   });
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>{
+    if(e.target.value === "file" ){
+      setForm({...form, [e.target.name]: e.target.files[0]})
+    }
+     setForm({...form, [e.target.name]: e.target.value });
+    };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -35,22 +41,22 @@ function CreateCampaign() {
     await tx.wait(); 
 
     alert("Campaign Created");
-    navigator("/Home");
+    navigator('/Home');
   } catch (error) {
     console.error(" Error creating campaign:", error);
   }
 };
 
-
   return (
-    <form onSubmit={handleSubmit} className="p-4 space-y-4 max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="p-4 text-white space-y-4 max-w-md mx-auto">
       {["title", "description", "target", "deadline", "image"].map((f) => (
         <input
           key={f}
           name={f}
-          type={f === "deadline" ? "date" : "text"}
+          type={f === "deadline" ? "date":f === "image"?"file":"text"}
+          accept={f === "image" ? "image/*" : undefined}
           placeholder={f[0].toUpperCase() + f.slice(1)}
-          value={form[f]}
+          value={f !== "image" ? form[f] : undefined}
           onChange={handleChange}
           className="border p-2 w-full rounded"
           required
