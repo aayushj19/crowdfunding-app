@@ -1,17 +1,18 @@
-import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
 import CreateCampaign from "./pages/CreateCampgains";
 import useWallet from "./hooks/Wallet";
+// import clearCampaign from "Home";
 
 function App() {
   const { walletAddress, connectWallet, disconnectWallet } = useWallet();
+
   return (
     <Router>
       <nav className="p-4  flex justify-between items-center">
         <div className="flex  bg-white text-white gap-4">
           <Link to="/" className="hover:underline">Home</Link>
-          <Link to="/create" className="hover:underline">Create Campaign</Link>
+          <Link to="/create" className="hover:underline cursor-pointer ">Create Campaign</Link>
         </div>
         <div>
           {walletAddress ? (

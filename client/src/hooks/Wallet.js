@@ -20,7 +20,7 @@ export default function useWallet(){
         }
         
     }
-    const disconnectWallet = ()=>{
+    const disconnectWallet = ()=>{  
         setWalletAddress(null);
        
     }
